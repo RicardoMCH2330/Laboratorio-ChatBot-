@@ -44,15 +44,15 @@ Si deseas contribuir a este proyecto, sigue estos pasos:
  ```bash
     git checkout -b nombre-de-la-rama
 ```
-4. Realiza un commit de tus cambios asegurándote de seguir las convenciones de estilo y buenas prácticas del proyecto
+3. Realiza un commit de tus cambios asegurándote de seguir las convenciones de estilo y buenas prácticas del proyecto
   ```bash
 git commit -m "Descripción clara de los cambios"
 ```
-7. Haz push de la rama a tu repositorio
+4. Haz push de la rama a tu repositorio
   ```bash
   (git push origin nombre-de-la-rama)
 ```
-10. Abre un Pull Request en el repositorio original y proporciona una descripción detallada de los cambios realizados.
+5. Abre un Pull Request en el repositorio original y proporciona una descripción detallada de los cambios realizados.
 
 ## Licencia 
 Este repositorio no tiene una licencia asignada.
