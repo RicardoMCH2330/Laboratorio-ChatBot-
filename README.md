@@ -1,7 +1,7 @@
 # Laboratorio ChatBot (Duck AI)
 
 ## Tabla de contenidos 
-- [Descipción](#descripción)
+- [Descripción](#descripción)
 - [Lenguaje](##lenguajes)
 - [Instalación](#instalación)
 - [Uso](#uso)
