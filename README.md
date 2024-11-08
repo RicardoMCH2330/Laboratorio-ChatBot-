@@ -35,7 +35,7 @@ java -jar target/Laboratorio-ChatBot.jar
 
 **Es necesario tener instalado y ejecutando Ollama llama3.2:1b**
 
-## Cómo contribuir 
+## Contribución 
 
 Si deseas contribuir a este proyecto, sigue estos pasos:
 
