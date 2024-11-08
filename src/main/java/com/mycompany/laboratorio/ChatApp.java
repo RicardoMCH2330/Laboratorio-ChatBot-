@@ -30,6 +30,112 @@ public class ChatApp extends javax.swing.JFrame {
     /**
      * Creates new form ChatApp
      */
+    
+    private void guardarEnHistorial() {
+    
+    
+     if (ListaChat.getModel().getSize() > 0) {
+            ListaChat.setListData(Vacio);
+            Promt2 = Promt;
+
+            // Verificar si ya existe un título en el historial
+            boolean tituloOcupado = false;
+            for (int i = 0; i < n; i++) {
+                if (Titulo[i] != null && Titulo[i].equals(K)) {
+                    tituloOcupado = true;  // Si el título ya está asignado, no se puede añadir un nuevo chat
+                    break;
+                }
+            }
+
+            if (!tituloOcupado) {  // Solo añadir un nuevo chat si no está ocupado
+                Conver.add(Promt.clone());
+
+                // Asignar el título a la primera posición disponible
+                for (int i = 0; i < n; i++) {
+                    if (Titulo[i] == null) {
+                        Titulo[i] = K;
+                        break;
+                    }
+                }
+
+                // Actualizar el historial
+                Historial.setListData(Titulo);
+
+                // Limpiar el arreglo Promt
+                for (int i = 0; i < n; i++) {
+                    Promt[i] = null;
+                }
+            } else {
+                if (G != 1 & G != 2) {
+                    JOptionPane.showMessageDialog(rootPane, "El chat ya existe en el historial.", "Error", HEIGHT);
+                } else {
+                    Conver.add(Promt.clone());
+                    for (int i = 0; i < n; i++) {
+                        Promt[i] = null;
+                    }
+                    G=1;
+                }
+            }
+        }
+    
+    }
+    
+   private void enviarPregunta() {
+    // Verificar si el campo de texto está vacío
+    if (Pregunta.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor, ingrese una pregunta antes de enviar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    // Guardar la pregunta en el array Promt
+    boolean s = false;
+    int p = 0;
+    for (int i = 0; i < n; i++) {
+        if (Promt[i] == null) {
+            if (i == 0) {
+                K = Pregunta.getText();
+            }
+            Promt[i] = "Tu: " + Pregunta.getText();  // Guardar la pregunta en el array
+            s = true;
+            p = i;
+            Pregunta.setText("");  // Limpiar el campo de texto después de enviar
+            break;
+        }
+    }
+
+    if (s) {
+        // Actualizar la lista de chats (historial) para mostrar la pregunta
+        ListaChat.setListData(Promt);
+        
+        // Procesar la respuesta de la IA
+        procesarRespuesta(p);  // Llama a procesarRespuesta y pasa la posición de la pregunta
+    }
+}
+
+// Método para procesar la respuesta de la IA
+private void procesarRespuesta(int posicionPregunta) {
+    String pregunta = Promt[posicionPregunta];  // La pregunta que se acaba de enviar
+    try {
+        // Enviar la pregunta a Ollama usando la clase Laboratorio
+        String respuesta = Laboratorio.Chat(pregunta);  // Llamada al método Chat de Laboratorio
+
+        // Guardar la respuesta en el array Promt, justo después de la pregunta
+        for (int i = posicionPregunta + 1; i < n; i++) {  // El siguiente índice después de la pregunta
+            if (Promt[i] == null) {
+                Promt[i] = "IA: " + respuesta;  // Guardar la respuesta de Ollama
+                break;
+            }
+        }
+
+        // Actualizar la lista de chats (historial) para mostrar la pregunta y la respuesta
+        ListaChat.setListData(Promt);
+
+    } catch (IOException ex) {
+        Logger.getLogger(ChatApp.class.getName()).log(Level.SEVERE, null, ex);
+        JOptionPane.showMessageDialog(this, "Ocurrió un error al conectar con Ollama.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+    
     String[] Promt;
     public int n = 999;
     String K;
@@ -254,99 +360,11 @@ public class ChatApp extends javax.swing.JFrame {
     }//GEN-LAST:event_PreguntaActionPerformed
 
     private void EnviarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnviarMouseClicked
-
-        if (Pregunta.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese una pregunta antes de enviar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        // Guardar la pregunta en el array Promt
-        boolean s = false;
-        int p = 0;
-        for (int i = 0; i < n; i++) {
-            if (Promt[i] == null) {
-                if (i == 0) {
-                    K = Pregunta.getText();
-                }
-                Promt[i] = "Tu: " + Pregunta.getText();  // Guardar la pregunta en el array
-                s = true;
-                p = i;
-                Pregunta.setText("");  // Limpiar el campo de texto después de enviar
-                break;
-            }
-        }
-
-        if (s) {
-            // Actualizar la lista de chats (historial) para mostrar la pregunta
-            ListaChat.setListData(Promt);
-
-            String pregunta = Promt[p];  // La pregunta que se acaba de enviar
-            try {
-                // Enviar la pregunta a Ollama usando la clase Laboratorio
-                String respuesta = Laboratorio.Chat(pregunta);  // Llamada al método Chat de Laboratorio
-
-                // Guardar la respuesta en el array Promt, justo después de la pregunta
-                for (int i = p + 1; i < n; i++) {  // El siguiente índice después de la pregunta
-                    if (Promt[i] == null) {
-                        Promt[i] = "IA: " + respuesta;  // Guardar la respuesta de Ollama
-                        break;
-                    }
-                }
-
-                // Actualizar la lista de chats (historial) para mostrar la pregunta y la respuesta
-                ListaChat.setListData(Promt);
-
-            } catch (IOException ex) {
-                Logger.getLogger(ChatApp.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(this, "Ocurrió un error al conectar con Ollama.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
+    enviarPregunta();
     }//GEN-LAST:event_EnviarMouseClicked
 
     private void NChatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NChatMouseClicked
-        if (ListaChat.getModel().getSize() > 0) {
-            ListaChat.setListData(Vacio);
-            Promt2 = Promt;
-
-            // Verificar si ya existe un título en el historial
-            boolean tituloOcupado = false;
-            for (int i = 0; i < n; i++) {
-                if (Titulo[i] != null && Titulo[i].equals(K)) {
-                    tituloOcupado = true;  // Si el título ya está asignado, no se puede añadir un nuevo chat
-                    break;
-                }
-            }
-
-            if (!tituloOcupado) {  // Solo añadir un nuevo chat si no está ocupado
-                Conver.add(Promt.clone());
-
-                // Asignar el título a la primera posición disponible
-                for (int i = 0; i < n; i++) {
-                    if (Titulo[i] == null) {
-                        Titulo[i] = K;
-                        break;
-                    }
-                }
-
-                // Actualizar el historial
-                Historial.setListData(Titulo);
-
-                // Limpiar el arreglo Promt
-                for (int i = 0; i < n; i++) {
-                    Promt[i] = null;
-                }
-            } else {
-                if (G != 1 & G != 2) {
-                    JOptionPane.showMessageDialog(rootPane, "El chat ya existe en el historial.", "Error", HEIGHT);
-                } else {
-                    Conver.add(Promt.clone());
-                    for (int i = 0; i < n; i++) {
-                        Promt[i] = null;
-                    }
-                    G=1;
-                }
-            }
-        }
+       guardarEnHistorial();
     }//GEN-LAST:event_NChatMouseClicked
 
     private void HistorialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HistorialMouseClicked

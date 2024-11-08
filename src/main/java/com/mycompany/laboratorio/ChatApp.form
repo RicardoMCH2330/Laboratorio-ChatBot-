@@ -37,9 +37,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="48" style="1"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Juan Sebastian\Documents\NetBeansProjects\Laboratorio\src\main\java\com\mycompany\laboratorio\logo peque&#xf1;o.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="DuckAI"/>
       </Properties>
       <Constraints>
@@ -263,9 +260,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Juan Sebastian\Documents\NetBeansProjects\Laboratorio\src\main\java\com\mycompany\laboratorio\wp9365373-technical-4k-wallpapers.jpg"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="jLabel2"/>
         <Property name="autoscrolls" type="boolean" value="true"/>
       </Properties>
