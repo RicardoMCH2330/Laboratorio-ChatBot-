@@ -5,7 +5,7 @@
 - [Lenguaje](##lenguajes)
 - [Instalación](#instalación)
 - [Uso](#uso)
-- [Contribucion](#Contribucion)
+- [Contribución](#Contribución)
 - [Licencia](#Licencia)
 - [Autores y Reconocimiento](#autores-y-reconocimientos)
 
