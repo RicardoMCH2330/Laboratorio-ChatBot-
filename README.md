@@ -31,8 +31,9 @@ Por favor seguir estas instrucciones solo si esta usando Maven.
 
 ## Uso 
 Para ejecutar el proyecto, utiliza el siguiente comando: 
+```bash
 java -jar target/Laboratorio-ChatBot.jar
-
+```
 **Es necesario tener instalado y ejecutando Ollama llama3.2:1b**
 
 ## Contribución 
