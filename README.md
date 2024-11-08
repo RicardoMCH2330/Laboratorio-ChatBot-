@@ -46,11 +46,11 @@ Si deseas contribuir a este proyecto, sigue estos pasos:
 ```
 3. Realiza un commit de tus cambios asegurándote de seguir las convenciones de estilo y buenas prácticas del proyecto
   ```bash
-git commit -m "Descripción clara de los cambios"
+     git commit -m "Descripción clara de los cambios"
 ```
 4. Haz push de la rama a tu repositorio
   ```bash
-  (git push origin nombre-de-la-rama)
+     git push origin nombre-de-la-rama
 ```
 5. Abre un Pull Request en el repositorio original y proporciona una descripción detallada de los cambios realizados.
 
