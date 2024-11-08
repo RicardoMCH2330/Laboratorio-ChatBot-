@@ -1,4 +1,4 @@
-# Laboratorio-ChatBot-
+# Laboratorio ChatBot (Duck AI)
 
 ## Tabla de contenidos 
 - [Descipcion](#descripcion)
@@ -13,7 +13,7 @@
 Este proyecto esta diseñado para brindar ayuda, ideas y solcuiones al cliente sobre cualquier duda que tenga.
 
 ## Lenguaje
-El proyecto esta realizado en Java 
+El lenguaje utilizado para este proyecto es Java.
 
 ## Instalacion 
 
