@@ -1,21 +1,21 @@
-# Laboratorio-ChatBot-
+# Laboratorio ChatBot (Duck AI)
 
 ## Tabla de contenidos 
-- [Descipcion](#descripcion)
+- [Descripción](#descripción)
 - [Lenguaje](##lenguajes)
-- [Instalacion](#instalacion)
+- [Instalación](#instalación)
 - [Uso](#uso)
-- [Contribucion](#Contribucion)
+- [Contribución](#Contribución)
 - [Licencia](#Licencia)
 - [Autores y Reconocimiento](#autores-y-reconocimientos)
 
-## Descripcion
-Este proyecto esta diseñado para brindar ayuda, ideas y solcuiones al cliente sobre cualquiera duda que tenga.
+## Descripción
+Este proyecto esta diseñado para brindar ayuda, ideas y solcuiones al cliente sobre cualquier duda que tenga.
 
 ## Lenguaje
-El proyecto esta realizado en Java 
+El lenguaje utilizado para este proyecto es Java.
 
-## Instalacion 
+## Instalación 
 
 Por favor seguir estas instrucciones solo si esta usando Maven.
 
@@ -30,25 +30,39 @@ Por favor seguir estas instrucciones solo si esta usando Maven.
    mvn install
 
 ## Uso 
-Para ejecutar el proeycto, usa el siguiente comando : 
+Para ejecutar el proyecto, utiliza el siguiente comando: 
+```bash
 java -jar target/Laboratorio-ChatBot.jar
+```
+**Es necesario tener instalado y ejecutando Ollama llama3.2:1b**
 
-## Contribucion 
+## Contribución 
 
-1. Haz un fork del proyecto
-2. Crea una rama
-3. haz commit de tus cambios
-4. Haz push en la rama 
-5. Abre un Pull Request
+Si deseas contribuir a este proyecto, sigue estos pasos:
+
+1. Realiza un fork del repositorio.
+2. Crea una nueva rama para tu contribución
+ ```bash
+    git checkout -b nombre-de-la-rama
+```
+3. Realiza un commit de tus cambios asegurándote de seguir las convenciones de estilo y buenas prácticas del proyecto
+  ```bash
+     git commit -m "Descripción clara de los cambios"
+```
+4. Haz push de la rama a tu repositorio
+  ```bash
+     git push origin nombre-de-la-rama
+```
+5. Abre un Pull Request en el repositorio original y proporciona una descripción detallada de los cambios realizados.
 
 ## Licencia 
-No tiene 
+Este repositorio no tiene una licencia asignada.
 
 ## Autores y Reconocimientos 
  - Ricardo Morales
  - Juan Jose Rodriguez
- - Keinner Barragan
+ - Keiner Barragan
  - Sara Ibañez
  - Cristian Braun
 
- Gracias a la porfesora Katherine Ospino , al monitor Cristian Gonzalez y a la Universidad del Norte. 
+ Gracias a la profesora Katherine Ospino, al monitor Cristian Gonzalez y a la Universidad del Norte. 
