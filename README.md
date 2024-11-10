@@ -60,7 +60,7 @@ Este repositorio no tiene una licencia asignada.
 
 ## Autores y Reconocimientos 
  - Ricardo Morales
- - Juan Jose Rodriguez
+ - Juan Sebastian Rodriguez
  - Keiner Barragan
  - Sara Ibañez
  - Cristian Braun
